@@ -8,16 +8,16 @@ class Sql extends PDO{
 		$this->conn = new PDO("mysql:host=localhost;dbname=bdphp7","root","1234");
 	}// fim function
 
-	private function setParams($statment, $parameters = array()){
+	private function setParams($statement, $parameters = array()){
 		foreach ($parameters as $key => $value) {
-			$this->setParam($key,$value);
+			$this->setParam($statement, $key, $value);
 		}
 
 	}// fim setParams
 
-	private function setParam($statment,$key,$value){
+	private function setParam($statement,$key,$value){
 
-			$this->setParam($key,$value);
+			$statement->bindParam($key,$value);
 
 	}// fim setParam
 
