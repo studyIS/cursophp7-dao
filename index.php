@@ -2,13 +2,26 @@
 
 require_once("config.php");
 
-//CARREGA UM USUARIO PELO LOGIN E SENHA
+$usuario = new Usuario();
+$usuario->loadById(8);
+$usuario->update("Professor", "!#$%$")
+
+/*
+ CRIANDO UM NOVO USUARIO
+$aluno = new Usuario("aluno","@luno");
+
+$aluno->insert();
+
+echo $aluno;
+*/
+
+/*CARREGA UM USUARIO PELO LOGIN E SENHA
 
 $usuario = new Usuario();
 $usuario->login("Rayara","7477");
 
 echo $usuario;
-
+/*
 
 /*	CARREGA UMA LISTA DE USUARIOS BUSCANDO PELO LOGIN
 $search = Usuario::search("R");
