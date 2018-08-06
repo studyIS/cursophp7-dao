@@ -123,7 +123,7 @@ class Usuario{
 
 	}// fim insert
 
-	function update($login,$password){
+		function update($login,$password){
 		$this->setDeslogin($login);
 		$this->setDessenha($password);
 		$sql = new Sql();
@@ -133,9 +133,22 @@ class Usuario{
 				':ID'=>$this->getIdusuario()
 		));
 
+		}// fim update
 
+		 function delete(){
+			$sql = new Sql();
 
-	}// fim update
+			$sql->query("DELETE FROM tb_usuarios WHERE idusuario = :ID",array(
+				':ID'=>$this->getIdusuario()
+			));
+
+			$this->setIdusuario(0);
+			$this->setDeslogin("");
+			$this->setDessenha("");
+			$this->setDtcadastro(new DateTime());
+
+		}// fim delete
+
 
 	function __construct($login = "",$password =""){
 		
